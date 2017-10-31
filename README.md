@@ -38,7 +38,13 @@ $ brew install carthage
 
 Or you can download latest [release](https://github.com/Carthage/Carthage/releases) file `Carthage.pkg` and install it.
 
-Create `Cartfile` in root directory of your project.
+Create `Cartfile` in root directory of your project entering the following in a console:
+
+```bash
+$ cd your/project/directory
+$ touch Cartfile
+$ open Cartfile
+```
 
 To integrate Buzzz with necessary linked frameworks into your Xcode project using Carthage, specify it in your `Cartfile`:
 
