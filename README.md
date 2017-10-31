@@ -4,11 +4,11 @@
 
 - [Introduction](#introduction)
 - [Requirements](#requirements)
+- [Installation](#installation)
 - [How to set up your project](#how-to-set-up-your-project)
   - [Add to Info plist file](#add-to-info-plist-file)
   - [Capabilities tab of the project](#capabilities-tab-of-the-project)
   - [How to create push notification certificate of your project](#how-to-create-push-notification-certificate-of-your-project)
-  - [Installation of necessary linked frameworks](#installation-of-necessary-linked-frameworks)
 - [Methods of the framework](#methods-of-the-framework)
 - [How to set up your code](#how-to-set-up-your-code)
   - [Usage example](#usage-example)
@@ -22,6 +22,40 @@ A Swift based iOS framework that communicates to our server via RESTFul API.
 
 - iOS 11.0+
 - Swift 4.0.1
+
+## Installation:
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+Or you can download latest [release](https://github.com/Carthage/Carthage/releases) file `Carthage.pkg` and install it.
+
+To integrate Buzzz with necessary linked frameworks into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "BuzzzProx/buzzz"
+github "Alamofire/Alamofire"
+github "aws/aws-sdk-ios"
+```
+
+Run `carthage update` to build the framework and drag the built `buzzz.framework` and others into your Xcode project at `Embedded binaries` section.
+
+These linked frameworks should be added into your project:
+
+1. Alamofire.framework
+2. AWSCore.framework
+3. AWSIoT.framework
+4. AWSS3.framework
+5. buzzz.framework
+
 
 ## How to set up your project
 
@@ -58,22 +92,6 @@ Input "import buzzz" in the project to start use framework.
 10. Select ".p12" file format and click "Save".
 11. Open "Terminal" application. Find file with ".p12" format location in console. Edit "openssl pkcs12 -in YourCertificateName.p12 -out YourCertificateNameForServer.pem -nodes -clcerts" line and press "Enter".
 11. New file "YourCertificateNameForServer.pem" was created near your certificate "YourCertificateName.p12". Provide ".pem" file to our server.
-
-### Installation of necessary linked frameworks:
-
-These linked frameworks should be used in your project:
-
-1. Alamofire.framework
-2. AWSCore.framework
-3. AWSIoT.framework
-4. AWSS3.framework
-
-To integrate them into your Xcode project using Carthage, specify it in your Cartfile
-```
-github "Alamofire/Alamofire"
-github "aws/aws-sdk-ios"
-```
-Run carthage update to build the framework and drag the built ****.framework files into your Xcode project.
 
 ## Methods of the framework:
 - BuzzzInit (clientid, secret)  - Get token and Setup api connections to server, initiate beacon regions.
