@@ -48,7 +48,7 @@ github "Alamofire/Alamofire"
 github "aws/aws-sdk-ios"
 ```
 
-Run `carthage update` to build the framework and drag the built `buzzz.framework` and others into your Xcode project at `Embedded binaries` section.
+Run `carthage update` to build frameworks. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop each  listed below frameworks from the Carthage/Build folder on disk.
 
 These linked frameworks should be added into your project:
 
